@@ -1,4 +1,4 @@
-
+// feather disable all
 //Dont do tasks if you arent authenticated and you are going to be authenticated
 if(asset_get_index("Obj_FirebaseREST_Listener_Authentication") != -1)
 {
