@@ -1,0 +1,51 @@
+shelter:
+	- reverse space invaders
+	
+break the cycle:
+	- dont break the bicycle
+	- BOMBS????
+	- definitely not hill climb racing
+	
+underground:
+	- lava. dont touch it.
+	
+strange machines:
+	- repair other robots by donating bits of yourself
+	
+paths:
+	- traffic attack, make a path to avoid the traffic??? (might be too hard)
+	
+signal:
+	- beep boop
+	
+folklore:
+	- bad theme
+	
+overgrown:
+	- evil flowers (not undertale)
+
+sanctuary:
+	- ???
+	
+salvage:
+	- ???
+	
+reflect:
+	- mirrors
+	- deflect
+	
+locks and keys:
+	- ?
+
+keep the light on:
+	- the light stops you
+	
+tiny creatures:
+	- hearding tiny robots in a storm
+	- speedrun but don't go to fast
+	
+limited space:
+	- every time you move the space decreases
+	
+absorb:
+	- something something osmos
