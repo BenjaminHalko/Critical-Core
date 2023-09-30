@@ -1,4 +1,4 @@
 /// @desc 
 
-spd = 0;
-dir = 0;
+xSpd = 0;
+ySpd = 0;

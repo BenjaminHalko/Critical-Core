@@ -1,5 +1,9 @@
 /// @desc 
 
-dir = 0;
-spd = 0;
+event_inherited();
 
+mass = 500;
+setRadius();
+
+shootDir = 0;
+cannonKnockback = 0;

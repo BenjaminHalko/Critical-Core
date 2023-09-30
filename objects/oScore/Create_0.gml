@@ -1,0 +1,3 @@
+/// @desc 
+
+amount = 0;
