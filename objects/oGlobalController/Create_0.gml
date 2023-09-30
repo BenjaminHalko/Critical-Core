@@ -2,13 +2,12 @@
 
 getOsType();
 
-surface_resize(application_surface, 960, 540);
+surface_resize(application_surface, 256, 224);
 
-instance_create_layer(0,0,layer,oLeaderboardAPI);
+if (DESKTOP) {
+	window_set_size(256*3, 224*3);	
+}
 
+//instance_create_layer(0,0,layer,oLeaderboardAPI);
 
-
-LeaderboardPost({
-	name: "jiim",
-	score: 2000
-})
+room_goto_next();
