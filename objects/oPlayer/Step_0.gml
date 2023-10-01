@@ -5,26 +5,27 @@ enableLive;
 // Inherit the parent event
 event_inherited();
 
-shootDir = point_direction(x,y,mouse_x,mouse_y);
+// Movement
+Input();
+xSpd = ApproachFade(xSpd, (keyRight - keyLeft) * 2, 1, 0.7);
+ySpd = ApproachFade(ySpd, (keyDown - keyUp) * 2, 1, 0.7);
 
-if (mouse_check_button_pressed(mb_left)) {
-	cannonKnockback = 6;
-	
-	with(instance_create_layer(x+lengthdir_x(radius-5,shootDir),y+lengthdir_y(radius-5,shootDir),"Bubbles",oBubble)) {
-		xSpd = lengthdir_x(1, other.shootDir);
-		ySpd = lengthdir_y(1, other.shootDir);
-		mass = 30;
-		setRadius();
-	}
-	
-	xSpd -= lengthdir_x(0.8, shootDir);
-	ySpd -= lengthdir_y(0.8, shootDir);
-	mass -= 50;
-}
+var _dist = point_distance(0,0,xSpd,ySpd);
+mass -= _dist + mass / 200;
 
 if (mass <= 0) {
 	instance_destroy();	
 }
 
 // Fade Values
-cannonKnockback = ApproachFade(cannonKnockback, 0, 1, 0.7);
+pulse = ApproachFade(pulse, 0, 0.05, 0.7);
+image_blend = merge_color(c_blue, #0087FF, pulse);
+
+// Trail
+if (irandom(3) == 0) {
+	var _dir = random(360);
+	var _len = random(radius * 0.7);
+	with(instance_create_depth(x+lengthdir_x(_len, _dir), y+lengthdir_y(_len,_dir), depth+1, oPlayerTrail)) {
+		radius = other.radius / 3;
+	}
+}

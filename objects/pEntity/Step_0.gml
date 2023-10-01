@@ -18,5 +18,10 @@ if (_wall != noone) {
 		
 		_wall.touchPulse = 1;
 		_wall.touchColor = c_aqua;
+		
+		while(!place_meeting(x-xSpd,y-ySpd,_wall)) {
+			x += xSpd;
+			y += ySpd;
+		}
 	}
 }

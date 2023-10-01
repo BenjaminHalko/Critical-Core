@@ -10,4 +10,6 @@ if (DESKTOP) {
 
 //instance_create_layer(0,0,layer,oLeaderboardAPI);
 
+global.gameOver = false;
+
 room_goto_next();

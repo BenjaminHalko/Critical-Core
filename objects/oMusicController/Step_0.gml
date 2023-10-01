@@ -31,7 +31,7 @@ if (global.audioTick) {
 		with(oWall) {
 			if (array_contains(_type, index,0,array_length(_type))) {
 				beatPulse = 1;
-				beatColor = other.wallPulseColor;
+				colorPulse = 1;
 			}
 		}
 	}
@@ -39,6 +39,7 @@ if (global.audioTick) {
 	if (global.audioBeat % 1 == 0) {
 		with(oWall) {
 			beatPulse = max(beatPulse, 0.5);
+			colorPulse = max(colorPulse, 0.5);
 		}		
 	}
 }

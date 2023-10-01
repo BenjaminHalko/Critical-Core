@@ -5,5 +5,4 @@ event_inherited();
 mass = 500;
 setRadius();
 
-shootDir = 0;
-cannonKnockback = 0;
+pulse = 0;

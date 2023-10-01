@@ -5,24 +5,24 @@ enableLive;
 // Inherit the parent event
 event_inherited();
 
-if (!absorbing) {
+if (!instance_exists(absorber)) {
 	var _bubble = instance_place(x,y,oBubble);
 	if (_bubble != noone) {
 		if (allowMerge and _bubble.allowMerge) {
-			if (object_index == oPlayer and !_bubble.absorbing) {
-				_bubble.absorbing = true;
+			if (object_index == oPlayer and !instance_exists(_bubble.absorber)) {
+				_bubble.absorber = id;
 				_bubble.absorbAmount = round(_bubble.mass*2);	
 			}
 				
 			if (_bubble.object_index == oPlayer) {
-				absorbing = true;
+				absorber = _bubble;
 				absorbAmount = round(mass*2);
 			} else {
 				// Calculate the distance between the centers of the two bubbles
 				var distance = point_distance(x, y, _bubble.x, _bubble.y);
 
 				// Calculate the overlap (the sum of the radii minus the distance)
-				var overlap = (2 * sqr(mass) + 2 * sqr(_bubble.mass)) - distance;
+				var overlap = (sqrt(mass / pi) + sqrt(_bubble.mass / pi)) - distance;
 
 				// Check if there is any overlap
 				if (overlap > 0) {
@@ -45,18 +45,21 @@ if (!absorbing) {
 					if (object_index != oPlayer) {
 						xSpd = lerp(xSpd, _bubble.xSpd, _absorptionRatio / 2);
 						ySpd = lerp(ySpd, _bubble.ySpd, _absorptionRatio / 2);
+						
+						_bubble.xSpd = lerp(_bubble.xSpd, xSpd, _otherAbsorptionRatio / 2);
+						_bubble.ySpd = lerp(_bubble.ySpd, ySpd, _otherAbsorptionRatio / 2);
 					}
 							
-					_bubble.xSpd = lerp(_bubble.xSpd, xSpd, _otherAbsorptionRatio / 2);
-					_bubble.ySpd = lerp(_bubble.ySpd, ySpd, _otherAbsorptionRatio / 2);			
+								
 						
 					if (mass < 1) instance_destroy();
 					if (_bubble.mass < 1) {
-						if (_bubble.absorbing and object_index == oPlayer) {
+						if (_bubble.absorber != noone and object_index == oPlayer) {
 							global.score += _bubble.absorbAmount;
-							with(instance_create_layer(oPlayer.x,oPlayer.y-oPlayer.radius-1,"GUI",oScore)) {
+							with(instance_create_layer(_bubble.absorber.x,_bubble.absorber.y-_bubble.absorber.radius-1,"GUI",oScore)) {
 								amount = round(_bubble.absorbAmount);	
 							}
+							_bubble.absorber.pulse = 1;
 						}
 						instance_destroy(_bubble);
 					}
@@ -66,18 +69,27 @@ if (!absorbing) {
 	} else {
 		allowMerge = true;
 	}
-}
-
-if (absorbing) {
-	var _dir = point_direction(x,y,oPlayer.x,oPlayer.y);
-	xSpd = lengthdir_x(0.2, _dir);
-	ySpd = lengthdir_y(0.2, _dir);
+} else {
+	var _dist = point_distance(x,y,absorber.x,absorber.y);
+	var _dir = point_direction(x,y,absorber.x,absorber.y);
+	xSpd = lengthdir_x(5, _dir);
+	ySpd = lengthdir_y(5, _dir);
+	
+	if _dist < 5 {
+		global.score += absorbAmount;
+		with(instance_create_layer(absorber.x,absorber.y-absorber.radius-1,"GUI",oScore)) {
+			amount = round(other.absorbAmount);	
+		}
+		absorber.pulse = 1;
+		absorber.mass += mass;
+		instance_destroy();
+	}
 }
 
 // Set Radius
 radius = ApproachFade(radius, sqrt(mass / pi), 1, 0.7);
-image_xscale = radius / 4;
-image_yscale = radius / 4;
+image_xscale = radius / 8;
+image_yscale = radius / 8;
 
 if (mass < 1) {
 	instance_destroy();	
