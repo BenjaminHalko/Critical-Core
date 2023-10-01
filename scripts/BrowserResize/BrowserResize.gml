@@ -8,4 +8,7 @@ function ScaleCanvas() {
 	if ((global.browserWidth / _aspect) > global.browserHeight) window_set_size((global.browserHeight *_aspect), global.browserHeight);
 	else window_set_size(global.browserWidth, (global.browserWidth / _aspect));
 	window_center();
+	
+	// resize gui
+	display_set_gui_maximize(window_get_width() / 256, window_get_height() / 224, 0, 0);
 }

@@ -12,7 +12,7 @@ Input();
 xSpd = ApproachFade(xSpd, (keyRight - keyLeft) * 2, 1, 0.7);
 ySpd = ApproachFade(ySpd, (keyDown - keyUp) * 2, 1, 0.7);
 
-var _dist = point_distance(0,0,xSpd,ySpd) / 6;
+var _dist = point_distance(0,0,xSpd,ySpd) / 3;
 mass -= _dist + mass / 300;
 
 if (mass <= 0) {

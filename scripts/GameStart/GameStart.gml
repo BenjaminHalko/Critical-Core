@@ -7,9 +7,18 @@ function GameStart() {
 }
 
 function GameEnd() {
+	instance_destroy(oCore);
+	instance_destroy(pEntity);
+	oLeaderboardAPI.draw = true;
+}
+
+function ReturnToMenu() {
+	global.lives = 3;
+	global.score = 0;
 	global.inGame = false;
 	instance_destroy(oCore);
 	instance_destroy(pEntity);
+	instance_activate_object(oMenu);
 }
 
 function Respawn() {

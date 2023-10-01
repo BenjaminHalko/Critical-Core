@@ -15,5 +15,5 @@ function Input() {
 	keyRight = keyboard_check(vk_right) or keyboard_check(ord("D")) or _gpRight;
 	keyUp = keyboard_check(vk_up) or keyboard_check(ord("W")) or _gpUp;
 	keyDown = keyboard_check(vk_down) or keyboard_check(ord("S")) or _gpDown;
-	keySelect = keyboard_check_pressed(vk_space) or keyboard_check_pressed(vk_shift) or _gpSelect;	
+	keySelect = keyboard_check_pressed(vk_enter) or keyboard_check_pressed(vk_shift) or _gpSelect;	
 }

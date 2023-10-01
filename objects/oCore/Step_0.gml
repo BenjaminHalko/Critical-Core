@@ -7,6 +7,7 @@ var _shoot = function(_shootDir, _obj) {
 	with(instance_create_layer(x+lengthdir_x(5,_shootDir),y+lengthdir_y(5,_shootDir),_layer,_obj)) {
 		var _dir = _shootDir + random_range(-10,10);
 		var _spd = random_range(1, 1.5);
+		if (_obj == oSpike) _spd = random_range(0.5, 1);
 		xSpd = lengthdir_x(_spd, _dir);
 		ySpd = lengthdir_y(_spd, _dir);
 		
