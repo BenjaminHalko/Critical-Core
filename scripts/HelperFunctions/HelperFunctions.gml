@@ -97,3 +97,9 @@ function Wrap(_value, _min, _max) {
 
 }
 
+function Save(_section, _key, _value) {
+	ini_open(SAVEFILE);
+	if is_real(_value) ini_write_real(_section, _key, _value);
+	else ini_write_string(_section, _key, _value);
+	ini_close();
+}

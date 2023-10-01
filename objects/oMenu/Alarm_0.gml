@@ -1,0 +1,3 @@
+/// @desc 
+
+blink = !blink;

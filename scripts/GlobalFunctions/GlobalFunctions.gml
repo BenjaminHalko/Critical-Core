@@ -2,6 +2,8 @@
 #macro GXG_CHALLENGE_ID ""
 #macro GOOGLEPLAY_LEADERBOARD_ID ""
 
+#macro SAVEFILE "save.ini"
+
 #macro BROWSER (global.ostype == OS.OSBROWSER)
 #macro OPERA (global.ostype == OS.OSOPERA)
 #macro DESKTOP (global.ostype == OS.OSDESKTOP)
