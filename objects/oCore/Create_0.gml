@@ -11,6 +11,8 @@ targetScale = 0.1;
 image_xscale = 0;
 image_yscale = 0;
 
+delay = 0;
+
 walls = [];
 with(oWall) {
 	array_push(other.walls, {

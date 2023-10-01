@@ -8,5 +8,7 @@ scoreOffsetTarget = 0;
 
 scoresPerPage = 10;
 disableSelect = false;
+
+global.highscore = 0;
 	
-//LeaderboardGet();
+LeaderboardGet();

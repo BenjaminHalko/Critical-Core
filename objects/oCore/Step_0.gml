@@ -18,10 +18,12 @@ var _shoot = function(_shootDir, _obj) {
 	}
 }
 
-if (global.audioTick and global.audioBeat % 1 == 0) {
-	shootDir += 20;
-	_shoot(shootDir, choose(oBubble, oBubble, oBubble, oBubble, oSpike));
-	_shoot(shootDir+180, choose(oBubble, oBubble, oBubble, oBubble, oSpike));
+if (!global.gameOver and global.audioTick and global.audioBeat % 1 == 0) {
+	if (--delay < 0) {
+		shootDir += 20;
+		_shoot(shootDir, choose(oBubble, oBubble, oBubble, oBubble, oSpike));
+		_shoot(shootDir+180, choose(oBubble, oBubble, oBubble, oBubble, oSpike));
+	}
 }
 
 pulse = Approach(pulse,0,0.1);

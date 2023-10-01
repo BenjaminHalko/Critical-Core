@@ -1,6 +1,6 @@
 function GameOver(_instant=false) {
 	global.gameOver = true;
-	audio_pause_sound(oMusicController.music);
+	global.nextRound = false;
 	with(oBubble) {
 		if (object_index == oPlayer) continue;
 		BurstBubble(id);	
@@ -10,11 +10,22 @@ function GameOver(_instant=false) {
 		call_later(30, time_source_units_frames, function() {
 			PlayerExplode();
 			instance_destroy(oSpike);
+			RestartRound();
 		});
 	} else {
 		PlayerExplode();
 		instance_destroy(oSpike);
+		RestartRound();
 	}
+}
+
+function NextRound() {
+	global.nextRound = true;
+	with(oBubble) {
+		if (object_index == oPlayer) continue;
+		BurstBubble(id);	
+	}
+	instance_destroy(oSpike);
 }
 
 function BurstBubble(_bubble) {
@@ -46,4 +57,14 @@ function PlayerExplode() {
 		}
 		instance_destroy();
 	}
+}
+
+function RestartRound() {
+	call_later(60, time_source_units_frames, function() {
+		if (--global.lives <= 0) {
+		 	GameEnd();
+		} else {
+			Respawn();
+		}
+	});
 }

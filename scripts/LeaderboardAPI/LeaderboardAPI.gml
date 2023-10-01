@@ -5,7 +5,17 @@ function LeaderboardGet() {
 
 /// @desc Post a score to the leaderboards
 /// @param {struct} score
-function LeaderboardPost(_score) {
+function LeaderboardPost() {
+	var _score = {
+		name: global.username,
+		points: global.score,
+		level: global.round
+	}
+	
+	if (_score.points > global.pb) {
+		global.pb = _score.points;
+		Save("score", "score", _score.points);
+	}
 	with(oLeaderboardAPI) {
 		var _index = array_find_index(scores, function(_val) {
 			return _val.name == global.username;
@@ -16,8 +26,12 @@ function LeaderboardPost(_score) {
 			else scores[_index].points = _score.points;
 			
 			array_sort(scores, function(_ele1,_ele2) {
-				return (_ele2.points - _ele1.points) + (_ele2.level - _ele1.level) * 100000
+				return (_ele2.points - _ele1.points)
 			});
+			
+			global.highscore = scores[0];
+			global.pb = _score.points;
+			
 			FirebaseRealTime(FIREBASE_LEADERBOARD_URL).Path(_score.name+"/points").Set(_score.points);
 			FirebaseRealTime(FIREBASE_LEADERBOARD_URL).Path(_score.name+"/level").Set(_score.level);
 		}

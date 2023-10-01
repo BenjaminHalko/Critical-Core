@@ -2,7 +2,7 @@
 
 enableLive;
 
-if (global.gameOver) exit;
+if (global.gameOver or global.nextRound) exit;
 
 // Inherit the parent event
 event_inherited();

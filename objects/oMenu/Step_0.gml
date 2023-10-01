@@ -42,8 +42,22 @@ if (!oLeaderboardAPI.draw) {
 			}
 		
 			if (option == 1 and keySelect) {
-				oLeaderboardAPI.draw = true;
-				oLeaderboardAPI.disableSelect = true;
+				with(oLeaderboardAPI) {
+					var _index = array_find_index(scores, function(_val) {
+						return _val.name == global.username;
+					});
+		
+					if (_index != -1) {
+						scoreOffsetTarget = median(_index-3, 0, array_length(scores)-scoresPerPage);
+						scoreOffset = scoreOffsetTarget;
+					} else {
+						scoreOffsetTarget = 0;
+						scoreOffset = 0;
+					}
+					
+					draw = true;
+					disableSelect = true;
+				}
 			}
 	
 			if (option == 2) {

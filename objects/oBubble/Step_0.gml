@@ -7,6 +7,20 @@ if (global.gameOver) exit;
 // Inherit the parent event
 event_inherited();
 
+function absorb() {
+	global.score += absorbAmount;
+	global.left -= absorbAmount;
+	if global.left <= 0 {
+		global.left = 0;
+		NextRound();
+	}
+	with(instance_create_layer(absorber.x,absorber.y-absorber.radius-1,"GUI",oScore)) {
+		amount = round(other.absorbAmount);	
+	}
+	absorber.pulse = 1;
+	absorber.mass += mass;	
+}
+
 if (!instance_exists(absorber)) {
 	var _bubble = instance_place(x,y,oBubble);
 	if (_bubble != noone) {
@@ -57,11 +71,9 @@ if (!instance_exists(absorber)) {
 					if (mass < 1) instance_destroy();
 					if (_bubble.mass < 1) {
 						if (_bubble.absorber != noone and object_index == oPlayer) {
-							global.score += _bubble.absorbAmount;
-							with(instance_create_layer(_bubble.absorber.x,_bubble.absorber.y-_bubble.absorber.radius-1,"GUI",oScore)) {
-								amount = round(_bubble.absorbAmount);	
+							with(_bubble) {
+								absorb();	
 							}
-							_bubble.absorber.pulse = 1;
 						}
 						instance_destroy(_bubble);
 					}
@@ -78,12 +90,7 @@ if (!instance_exists(absorber)) {
 	ySpd = lengthdir_y(5, _dir);
 	
 	if _dist < 5 {
-		global.score += absorbAmount;
-		with(instance_create_layer(absorber.x,absorber.y-absorber.radius-1,"GUI",oScore)) {
-			amount = round(other.absorbAmount);	
-		}
-		absorber.pulse = 1;
-		absorber.mass += mass;
+		absorb();
 		instance_destroy();
 	}
 }

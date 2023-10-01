@@ -12,10 +12,10 @@ if (draw) {
 		if (array_length(scores)-scoresPerPage <= 0) {
 			scoreOffsetTarget = 0;
 		} else {
-			scoreOffsetTarget = median(scoreOffsetTarget + keyDown - keyUp, 0, array_length(scores)-scoresPerPage);	
+			scoreOffsetTarget = median(scoreOffsetTarget + keyDown - keyUp, 0, array_length(scores)-scoresPerPage);
 		}
 	}
-	scoreOffset = Approach(scoreOffset, scoreOffsetTarget, 0.2);
+	scoreOffset = Approach(scoreOffset, scoreOffsetTarget, 0.4);
 	
 	if (keySelect) {
 		draw = false;
