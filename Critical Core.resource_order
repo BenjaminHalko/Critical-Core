@@ -1,6 +1,6 @@
 {
   "FolderOrderSettings": [
-    {"name":"~GMLive","order":6,"path":"folders/~GMLive.yy",},
+    {"name":"~GMLive","order":2,"path":"folders/~GMLive.yy",},
     {"name":"Internal","order":1,"path":"folders/~GMLive/Internal.yy",},
     {"name":"Compiler","order":1,"path":"folders/~GMLive/Internal/Compiler.yy",},
     {"name":"Misc","order":2,"path":"folders/~GMLive/Internal/Misc.yy",},
@@ -14,9 +14,9 @@
     {"name":"Objects","order":1,"path":"folders/~Leaderboard API/Firebase/Firebase RealTime/Extensions/Firebase REST API Library (Don't Touch)/Listeners RealTime/Tools/Objects.yy",},
     {"name":"Tools","order":2,"path":"folders/~Leaderboard API/Firebase/Firebase RealTime/Extensions/Firebase REST API Library (Don't Touch)/Tools.yy",},
     {"name":"Firebase Utils","order":1,"path":"folders/~Leaderboard API/Firebase/Firebase Utils.yy",},
-    {"name":"Audio","order":10,"path":"folders/Audio.yy",},
+    {"name":"Audio","order":4,"path":"folders/Audio.yy",},
     {"name":"Music","order":1,"path":"folders/Audio/Music.yy",},
-    {"name":"GameField","order":7,"path":"folders/GameField.yy",},
+    {"name":"GameField","order":3,"path":"folders/GameField.yy",},
     {"name":"Core","order":1,"path":"folders/GameField/Core.yy",},
     {"name":"Entities","order":2,"path":"folders/GameField/Entities.yy",},
     {"name":"Bubble","order":1,"path":"folders/GameField/Entities/Bubble.yy",},
@@ -25,8 +25,8 @@
     {"name":"Score","order":3,"path":"folders/GameField/Score.yy",},
     {"name":"Global","order":1,"path":"folders/Global.yy",},
     {"name":"Camera","order":12,"path":"folders/Global/Camera.yy",},
-    {"name":"Menu","order":12,"path":"folders/Menu.yy",},
-    {"name":"Render","order":11,"path":"folders/Render.yy",},
+    {"name":"Menu","order":6,"path":"folders/Menu.yy",},
+    {"name":"Render","order":5,"path":"folders/Render.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"url_encode","order":10,"path":"scripts/url_encode/url_encode.yy",},
@@ -40,6 +40,7 @@
     {"name":"fScore","order":1,"path":"fonts/fScore/fScore.yy",},
     {"name":"FirebaseREST_RealTime_getURL","order":7,"path":"scripts/FirebaseREST_RealTime_getURL/FirebaseREST_RealTime_getURL.yy",},
     {"name":"GMLive_new","order":2,"path":"scripts/GMLive_new/GMLive_new.yy",},
+    {"name":"FirebaseSetup","order":2,"path":"extensions/FirebaseSetup/FirebaseSetup.yy",},
     {"name":"GMLiveAPI","order":3,"path":"scripts/GMLiveAPI/GMLiveAPI.yy",},
     {"name":"FirebaseREST_HTTP_Failed_RealTime","order":5,"path":"scripts/FirebaseREST_HTTP_Failed_RealTime/FirebaseREST_HTTP_Failed_RealTime.yy",},
     {"name":"oPlayer","order":1,"path":"objects/oPlayer/oPlayer.yy",},

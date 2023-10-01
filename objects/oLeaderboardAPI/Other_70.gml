@@ -22,23 +22,6 @@ if (async_load[? "type"] == "FirebaseRealTime_Read") {
 			});
 			
 			global.highscore = scores[0].points;
-			
-			repeat(15) {
-				array_insert(scores, 0, {
-					name: "test",
-					points: 3,
-					level: 3
-				})
-			}
-			
-			repeat(15) {
-				array_push(scores, {
-					name: "test",
-					points: 3,
-					level: 3
-				})
-			}
 		}
-		
 	}
 }

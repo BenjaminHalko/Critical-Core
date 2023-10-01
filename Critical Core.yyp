@@ -75,6 +75,7 @@
     {"id":{"name":"fScore","path":"fonts/fScore/fScore.yy",},},
     {"id":{"name":"FirebaseREST_RealTime_getURL","path":"scripts/FirebaseREST_RealTime_getURL/FirebaseREST_RealTime_getURL.yy",},},
     {"id":{"name":"GMLive_new","path":"scripts/GMLive_new/GMLive_new.yy",},},
+    {"id":{"name":"FirebaseSetup","path":"extensions/FirebaseSetup/FirebaseSetup.yy",},},
     {"id":{"name":"GMLiveAPI","path":"scripts/GMLiveAPI/GMLiveAPI.yy",},},
     {"id":{"name":"FirebaseREST_HTTP_Failed_RealTime","path":"scripts/FirebaseREST_HTTP_Failed_RealTime/FirebaseREST_HTTP_Failed_RealTime.yy",},},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},

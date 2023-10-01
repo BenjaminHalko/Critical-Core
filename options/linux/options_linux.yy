@@ -5,7 +5,7 @@
   "option_linux_allow_fullscreen": true,
   "option_linux_disable_sandbox": false,
   "option_linux_display_cursor": false,
-  "option_linux_display_name": "Overload",
+  "option_linux_display_name": "Critical Core",
   "option_linux_display_splash": false,
   "option_linux_enable_steam": false,
   "option_linux_homepage": "",

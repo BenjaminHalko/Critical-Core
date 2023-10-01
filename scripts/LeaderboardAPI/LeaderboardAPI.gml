@@ -1,6 +1,6 @@
 /// @desc Get the current leaderboards
 function LeaderboardGet() {
-	FirebaseRealTime(FIREBASE_LEADERBOARD_URL).Read();
+	FirebaseRealTime(FIREBASE_LEADERBOARD_URL).Path("/").Read();
 }
 
 /// @desc Post a score to the leaderboards
