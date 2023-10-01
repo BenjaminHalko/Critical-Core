@@ -35,7 +35,7 @@
   "maintainGms1Font": false,
   "parent": {
     "name": "Score",
-    "path": "folders/Score.yy",
+    "path": "folders/GameField/Score.yy",
   },
   "pointRounding": 0,
   "ranges": [

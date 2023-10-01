@@ -38,8 +38,12 @@ if (global.audioTick) {
 	
 	if (global.audioBeat % 1 == 0) {
 		with(oWall) {
-			beatPulse = max(beatPulse, 0.5);
-			colorPulse = max(colorPulse, 0.5);
-		}		
+			beatPulse = max(beatPulse, 0.5 + 2 * (index == -1));
+			colorPulse = max(colorPulse, 0.5 + 0.2 * (index == -1));
+		}
+		with(oCore) {
+			pulse = 1;
+			targetScale += 0.005;
+		}
 	}
 }

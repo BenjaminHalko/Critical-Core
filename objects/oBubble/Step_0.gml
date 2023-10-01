@@ -2,6 +2,8 @@
 
 enableLive;
 
+if (global.gameOver) exit;
+
 // Inherit the parent event
 event_inherited();
 
@@ -91,6 +93,6 @@ radius = ApproachFade(radius, sqrt(mass / pi), 1, 0.7);
 image_xscale = radius / 8;
 image_yscale = radius / 8;
 
-if (mass < 1) {
+if (object_index != oPlayer and mass < 1) {
 	instance_destroy();	
 }

@@ -2,6 +2,8 @@
 
 enableLive;
 
+if (global.gameOver) exit;
+
 // Inherit the parent event
 event_inherited();
 
@@ -10,16 +12,16 @@ Input();
 xSpd = ApproachFade(xSpd, (keyRight - keyLeft) * 2, 1, 0.7);
 ySpd = ApproachFade(ySpd, (keyDown - keyUp) * 2, 1, 0.7);
 
-var _dist = point_distance(0,0,xSpd,ySpd);
-mass -= _dist + mass / 200;
+var _dist = point_distance(0,0,xSpd,ySpd) / 6;
+mass -= _dist + mass / 300;
 
 if (mass <= 0) {
-	instance_destroy();	
+	GameOver(true);
 }
 
 // Fade Values
 pulse = ApproachFade(pulse, 0, 0.05, 0.7);
-image_blend = merge_color(c_blue, #0087FF, pulse);
+image_blend = merge_color(#FF005E, #9400DD, pulse);
 
 // Trail
 if (irandom(3) == 0) {

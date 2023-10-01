@@ -11,7 +11,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Score",
-    "path": "folders/Score.yy",
+    "path": "folders/GameField/Score.yy",
   },
   "parentObjectId": null,
   "persistent": false,

@@ -1,24 +1,49 @@
-function collide(_object) {
-	// Calculate relative velocity
-    var relativeVelX = _object.x - x;
-    var relativeVelY = _object.y - y;
+function GameOver(_instant=false) {
+	global.gameOver = true;
+	audio_pause_sound(oMusicController.music);
+	with(oBubble) {
+		if (object_index == oPlayer) continue;
+		BurstBubble(id);	
+	}
+	if (!_instant) {
+		ScreenShake(1,30);
+		call_later(30, time_source_units_frames, function() {
+			PlayerExplode();
+			instance_destroy(oSpike);
+		});
+	} else {
+		PlayerExplode();
+		instance_destroy(oSpike);
+	}
+}
 
-    // Calculate relative speed
-    var relativeSpeed = point_distance(0, 0, relativeVelX, relativeVelY);
+function BurstBubble(_bubble) {
+	repeat(max(10, _bubble.mass / 50)) {
+		var _dir = random(360);
+		var _len = random(_bubble.radius * 0.8);
+		with(instance_create_depth(_bubble.x+lengthdir_x(_len, _dir),_bubble.y+lengthdir_y(_len, _dir), _bubble.depth+1, oPlayerTrail)) {
+			radius = random_range(_bubble.radius / 4, _bubble.radius / 3);
+			image_blend = c_gray;
+		}
+	}
+	instance_destroy(_bubble);
+}
 
-    // Normalize relative velocity
-    relativeVelX /= relativeSpeed;
-    relativeVelY /= relativeSpeed;
-
-    // Calculate new velocities using the reflection formula
-    var newVelX = spd * (relativeVelX - 2 * dot_product(spd, dir, relativeVelX, relativeVelY) * relativeVelX);
-    var newVelY = spd * (relativeVelY - 2 * dot_product(spd, dir, relativeVelX, relativeVelY) * relativeVelY);
-
-    // Apply the new velocities
-    spd = newVelX;
-    dir = point_direction(0, 0, newVelX, newVelY);
-
-    // Apply the new velocities to _object
-    _object.spd = _object.spd * (relativeVelX + 2 * dot_product(_object.spd, _object.dir, -relativeVelX, -relativeVelY) * relativeVelX);
-    _object.dir = point_direction(0, 0, _object.spd * relativeVelX, _object.spd * relativeVelY);
+function PlayerExplode() {
+	ScreenShake(20,30);
+	with(oPlayer) {
+		repeat(max(20, mass / 4)) {
+			var _radius = max(8,radius);
+			var _dir = random(360);
+			var _len = random(_radius * 0.8);
+			with(instance_create_depth(x+lengthdir_x(_len, _dir),y+lengthdir_y(_len, _dir),depth+1,oPlayerTrail)) {
+				radius = random_range(_radius / 5, _radius / 3);
+				speed = random(2);
+				direction = random(360);
+				image_blend = choose(c_white, #FF005E, #9400DD);
+				spd = random_range(0.01,0.02);
+			}
+		}
+		instance_destroy();
+	}
 }
