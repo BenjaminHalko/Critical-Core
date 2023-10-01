@@ -2,7 +2,7 @@
 
 enableLive;
 
-enterUsername = global.username == "";
+usernameFlash = 0;
 option = 0;
 blink = false;
 acceptMenuInput = false;

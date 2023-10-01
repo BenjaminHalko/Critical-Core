@@ -53,4 +53,22 @@ function RoundStart() {
 	oCore.targetScale = 0.1;
 	oCore.delay = (global.gameOver) ? 2 : 4;
 }
-	
+
+function GotoLeaderboard() {
+	with(oLeaderboardAPI) {
+		var _index = array_find_index(scores, function(_val) {
+			return _val.name == global.username;
+		});
+		
+		if (_index != -1) {
+			scoreOffsetTarget = median(_index-3, 0, array_length(scores)-scoresPerPage);
+			scoreOffset = scoreOffsetTarget;
+		} else {
+			scoreOffsetTarget = 0;
+			scoreOffset = 0;
+		}
+					
+		draw = true;
+		disableSelect = true;
+	}
+}

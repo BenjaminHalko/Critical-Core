@@ -8,8 +8,7 @@ y = room_height/2;
 
 pulse = 0;
 targetScale = 0.1;
-image_xscale = 0;
-image_yscale = 0;
+scale = 0;
 
 delay = 0;
 
@@ -33,3 +32,14 @@ for(var i = 0; i < array_length(walls); i++) {
 	}
 	walls[i].instance = _wall;
 }
+
+polygonPoints = [
+	[-24, -104],
+	[24, -104],
+	[104, -24],
+	[104, 24],
+	[24, 104],
+	[-24, 104],
+	[-104, 24],
+	[-104, -24]
+]

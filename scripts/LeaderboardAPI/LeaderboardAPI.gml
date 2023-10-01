@@ -29,7 +29,7 @@ function LeaderboardPost() {
 				return (_ele2.points - _ele1.points)
 			});
 			
-			global.highscore = scores[0];
+			global.highscore = scores[0].points;
 			global.pb = _score.points;
 			
 			FirebaseRealTime(FIREBASE_LEADERBOARD_URL).Path(_score.name+"/points").Set(_score.points);
