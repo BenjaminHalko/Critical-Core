@@ -46,6 +46,7 @@
     {"name":"oPlayer","order":1,"path":"objects/oPlayer/oPlayer.yy",},
     {"name":"GameStart","order":13,"path":"scripts/GameStart/GameStart.yy",},
     {"name":"FirebaseREST_asyncFunction_RealTime","order":3,"path":"scripts/FirebaseREST_asyncFunction_RealTime/FirebaseREST_asyncFunction_RealTime.yy",},
+    {"name":"RoundConfig","order":14,"path":"scripts/RoundConfig/RoundConfig.yy",},
     {"name":"GMLive_seekEval","order":5,"path":"scripts/GMLive_seekEval/GMLive_seekEval.yy",},
     {"name":"GameOver","order":8,"path":"scripts/GameOver/GameOver.yy",},
     {"name":"sPlayerMask","order":2,"path":"sprites/sPlayerMask/sPlayerMask.yy",},

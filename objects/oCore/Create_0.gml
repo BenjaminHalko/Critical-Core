@@ -11,6 +11,8 @@ targetScale = 0.1;
 scale = 0;
 
 delay = 0;
+playerHasMoved = false;
+flipShootDir = false;
 
 walls = [];
 with(oWall) {

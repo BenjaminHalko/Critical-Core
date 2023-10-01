@@ -43,7 +43,7 @@ if (global.audioTick) {
 		}
 		with(oCore) {
 			pulse = 1;
-			targetScale += 0.005;
+			if (!global.nextRound and !global.roundIntro and playerHasMoved) targetScale += getCoreIncrease();
 		}
 	}
 }

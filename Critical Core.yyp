@@ -84,6 +84,7 @@
     {"id":{"name":"FirebaseREST_asyncFunction_RealTime","path":"scripts/FirebaseREST_asyncFunction_RealTime/FirebaseREST_asyncFunction_RealTime.yy",},},
     {"id":{"name":"oLeaderboardAPI","path":"objects/oLeaderboardAPI/oLeaderboardAPI.yy",},},
     {"id":{"name":"sSpike","path":"sprites/sSpike/sSpike.yy",},},
+    {"id":{"name":"RoundConfig","path":"scripts/RoundConfig/RoundConfig.yy",},},
     {"id":{"name":"GMLive_seekEval","path":"scripts/GMLive_seekEval/GMLive_seekEval.yy",},},
     {"id":{"name":"GameOver","path":"scripts/GameOver/GameOver.yy",},},
     {"id":{"name":"sPlayerMask","path":"sprites/sPlayerMask/sPlayerMask.yy",},},

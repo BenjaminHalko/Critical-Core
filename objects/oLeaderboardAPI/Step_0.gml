@@ -19,7 +19,11 @@ if (draw) {
 	
 	if (keySelect) {
 		draw = false;
-		oMenu.disableSelect = true;
+		if (global.inGame) {
+			oGUI.alarm[0] = 1;
+		} else {
+			oMenu.disableSelect = true;
+		}
 	}
 }
 	

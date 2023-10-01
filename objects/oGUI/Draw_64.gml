@@ -31,3 +31,31 @@ if (gameStart % 2 == 1) {
 	draw_set_valign(fa_middle);
 	draw_text(room_width/2,room_height/2,"READY?");
 }
+
+if (global.nextRound) {
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_set_color(c_lime);
+	draw_text(room_width/2, room_height/2-40, "ROUND COMPLETE!");
+	draw_text(room_width/2, room_height/2+40, "+10000 POINTS");
+	draw_text(room_width/2, room_height/2+50, "+1 LIFE");
+}
+
+if (global.roundIntro) {
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_text(room_width/2, room_height/2-40, $"ROUND {global.round}");
+	draw_text(room_width/2, room_height/2+40, $"GET {global.left} POINTS");
+}
+
+if (global.gameOver and oLeaderboardAPI.draw) {
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_text(room_width/2, 46, "GAME OVER");
+}
+
+if (moveTutorial and global.inGame) {
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_text(room_width/2, room_height/2+40, "MOVE TO START");
+}

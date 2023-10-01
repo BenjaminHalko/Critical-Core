@@ -6,7 +6,7 @@ draw = false;
 scoreOffset = 0;
 scoreOffsetTarget = 0;
 
-scoresPerPage = 10;
+scoresPerPage = 8;
 disableSelect = false;
 
 global.highscore = 0;

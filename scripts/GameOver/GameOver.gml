@@ -1,31 +1,50 @@
 function GameOver(_instant=false) {
-	global.gameOver = true;
-	global.nextRound = false;
-	with(oBubble) {
-		if (object_index == oPlayer) continue;
-		BurstBubble(id);	
-	}
-	if (!_instant) {
-		ScreenShake(1,30);
-		call_later(30, time_source_units_frames, function() {
+	oGUI.moveTutorial = false;
+	oGUI.alarm[1] = -1;
+	if (!global.gameOver) {
+		global.gameOver = true;
+		global.nextRound = false;
+		with(oBubble) {
+			if (object_index == oPlayer) continue;
+			BurstBubble(id);	
+		}
+		if (!_instant) {
+			ScreenShake(1,30);
+			call_later(30, time_source_units_frames, function() {
+				if (global.inGame) {
+					PlayerExplode();
+					instance_destroy(oSpike);
+					RestartRound();
+				}
+			});
+		} else {
 			PlayerExplode();
 			instance_destroy(oSpike);
 			RestartRound();
-		});
-	} else {
-		PlayerExplode();
-		instance_destroy(oSpike);
-		RestartRound();
+		}
 	}
 }
 
 function NextRound() {
 	global.nextRound = true;
+	global.round++;
+	global.lives++;
+	global.score += 10000;
+	oCore.targetScale = getCoreStart();
 	with(oBubble) {
 		if (object_index == oPlayer) continue;
 		BurstBubble(id);	
 	}
+	with(oPlayer) {
+		mass = 500;	
+	}
 	instance_destroy(oSpike);
+	
+	call_later(120, time_source_units_frames, function() {
+		if (global.inGame) {
+			RoundStart();
+		}
+	})
 }
 
 function BurstBubble(_bubble) {
@@ -43,7 +62,7 @@ function BurstBubble(_bubble) {
 function PlayerExplode() {
 	ScreenShake(20,30);
 	with(oPlayer) {
-		repeat(max(20, mass / 4)) {
+		repeat(max(50, mass / 4)) {
 			var _radius = max(8,radius);
 			var _dir = random(360);
 			var _len = random(_radius * 0.8);
@@ -61,10 +80,12 @@ function PlayerExplode() {
 
 function RestartRound() {
 	call_later(60, time_source_units_frames, function() {
-		if (--global.lives <= 0) {
-		 	GameEnd();
-		} else {
-			Respawn();
+		if (global.inGame) {
+			if (--global.lives <= 0) {
+			 	GameEnd();
+			} else {
+				Respawn();
+			}
 		}
 	});
 }

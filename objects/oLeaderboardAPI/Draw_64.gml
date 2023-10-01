@@ -2,12 +2,11 @@
 
 enableLive;
 
-scoresPerPage = 8;
-
 if (draw) {
 	draw_set_font(fScore);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);
+	draw_set_color(c_white);
 	
 	var _x = 73;
 	var _y = 62;

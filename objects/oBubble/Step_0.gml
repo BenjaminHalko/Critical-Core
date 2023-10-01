@@ -10,15 +10,15 @@ event_inherited();
 function absorb() {
 	global.score += absorbAmount;
 	global.left -= absorbAmount;
-	if global.left <= 0 {
-		global.left = 0;
-		NextRound();
-	}
 	with(instance_create_layer(absorber.x,absorber.y-absorber.radius-1,"GUI",oScore)) {
 		amount = round(other.absorbAmount);	
 	}
 	absorber.pulse = 1;
-	absorber.mass += mass;	
+	absorber.mass += mass;
+	if global.left <= 0 {
+		global.left = 0;
+		NextRound();
+	}
 }
 
 if (!instance_exists(absorber)) {
@@ -27,12 +27,12 @@ if (!instance_exists(absorber)) {
 		if (allowMerge and _bubble.allowMerge) {
 			if (object_index == oPlayer and !instance_exists(_bubble.absorber)) {
 				_bubble.absorber = id;
-				_bubble.absorbAmount = round(_bubble.mass*2);	
+				_bubble.absorbAmount = round(_bubble.mass / 2);	
 			}
 				
 			if (_bubble.object_index == oPlayer) {
 				absorber = _bubble;
-				absorbAmount = round(mass*2);
+				absorbAmount = round(mass / 2);
 			} else {
 				// Calculate the distance between the centers of the two bubbles
 				var distance = point_distance(x, y, _bubble.x, _bubble.y);

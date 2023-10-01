@@ -1,7 +1,8 @@
 function GameStart() {
 	instance_create_layer(room_width/2,room_height/2,"Core",oCore);
-	global.lives = 3;
+	global.lives = 5;
 	global.score = 0;
+	global.round = 1;
 	global.inGame = true;
 	global.nextRound = false;
 	global.gameOver = false;
@@ -12,46 +13,47 @@ function GameEnd() {
 	instance_destroy(oCore);
 	instance_destroy(pEntity);
 	LeaderboardPost();
-	with(oLeaderboardAPI) {
-		var _index = array_find_index(scores, function(_val) {
-			return _val.name == global.username;
-		});
-		
-		if (_index != -1) {
-			scoreOffsetTarget = median(_index-3, 0, array_length(scores)-scoresPerPage);
-			scoreOffset = scoreOffsetTarget;
-		} else {
-			scoreOffsetTarget = 0;
-			scoreOffset = 0;
-		}
-	
-		draw = true;
-	}
+	GotoLeaderboard();
 }
 
 function ReturnToMenu() {
-	global.lives = 3;
-	global.score = 0;
 	global.inGame = false;
 	global.gameOver = false;
 	global.nextRound = false;
+	global.roundIntro = false;
+	oGUI.moveTutorial = false;
+	oGUI.alarm[1] = -1;
 	instance_destroy(oCore);
 	instance_destroy(pEntity);
+	instance_destroy(oPlayerTrail);
 	instance_activate_object(oMenu);
 }
 
 function Respawn() {
 	instance_destroy(pEntity);
-	instance_create_layer(room_width/2,64,"Player",oPlayer);
+	instance_create_layer(room_width/2,44,"Player",oPlayer);
 	RoundStart();
 	global.gameOver = false;
 }
 
 function RoundStart() {
 	global.nextRound = false;
-	global.left = 5000;
-	oCore.targetScale = 0.1;
-	oCore.delay = (global.gameOver) ? 2 : 4;
+	global.roundIntro = true;
+	with (oCore) {
+		playerHasMoved = false;
+		shootDir = 0;
+		flipShootDir = !flipShootDir;
+	}
+	call_later(global.gameOver ? 60 : 120, time_source_units_frames, function() {
+		if (global.inGame) {
+			global.roundIntro = false;
+			if (!global.gameOver) oGUI.alarm[1] = 180;
+		}
+	})
+	setLeft();
+	with(oCore) {
+		targetScale = getCoreStart();
+	}
 }
 
 function GotoLeaderboard() {
@@ -61,7 +63,7 @@ function GotoLeaderboard() {
 		});
 		
 		if (_index != -1) {
-			scoreOffsetTarget = median(_index-3, 0, array_length(scores)-scoresPerPage);
+			scoreOffsetTarget = max(0, min(_index-3, array_length(scores)-scoresPerPage));
 			scoreOffset = scoreOffsetTarget;
 		} else {
 			scoreOffsetTarget = 0;
