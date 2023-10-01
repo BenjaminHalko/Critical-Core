@@ -59,3 +59,5 @@ if (moveTutorial and global.inGame) {
 	draw_set_valign(fa_middle);
 	draw_text(room_width/2, room_height/2+40, "MOVE TO START");
 }
+
+draw_text(64,64,global.gameOver);

@@ -23,7 +23,7 @@ function getCoreStart() {
 function getCoreIncrease() {
 	enableLive;
 	
-	return 0.004 + 0.001 * global.round;
+	return 0.005 + 0.003 * global.round;
 }
 
 function coreShoot() {

@@ -32,7 +32,7 @@ if (draw) {
 		draw_text(_x, _scoreY, _place);
 		draw_text(_x+22, _scoreY, scores[i].name);
 		draw_text(_x+70, _scoreY, scores[i].points);
-		draw_text(_x+100, _scoreY, scores[i].level);
+		draw_text(_x+102, _scoreY, scores[i].level);
 	}
 	draw_set_alpha(1);
 	

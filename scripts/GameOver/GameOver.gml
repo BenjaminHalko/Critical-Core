@@ -4,12 +4,14 @@ function GameOver(_instant=false) {
 	if (!global.gameOver) {
 		global.gameOver = true;
 		global.nextRound = false;
+		global.roundIntro = false;
 		with(oBubble) {
 			if (object_index == oPlayer) continue;
 			BurstBubble(id);	
 		}
 		if (!_instant) {
-			ScreenShake(1,30);
+			audio_play_sound(snHit, 2, false);
+			ScreenShake(4,20);
 			call_later(30, time_source_units_frames, function() {
 				if (global.inGame) {
 					PlayerExplode();
@@ -60,10 +62,12 @@ function BurstBubble(_bubble) {
 }
 
 function PlayerExplode() {
-	ScreenShake(20,30);
+	ScreenShake(12,40);
+	audio_play_sound(snExplode, 2, false);
+	instance_create_depth(x,y,oPlayer.depth,oPlayerTrail);
 	with(oPlayer) {
-		repeat(max(50, mass / 4)) {
-			var _radius = max(8,radius);
+		repeat(max(80, mass / 4)) {
+			var _radius = max(12,radius);
 			var _dir = random(360);
 			var _len = random(_radius * 0.8);
 			with(instance_create_depth(x+lengthdir_x(_len, _dir),y+lengthdir_y(_len, _dir),depth+1,oPlayerTrail)) {

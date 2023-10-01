@@ -5,7 +5,6 @@ function GameStart() {
 	global.round = 1;
 	global.inGame = true;
 	global.nextRound = false;
-	global.gameOver = false;
 	Respawn();
 }
 

@@ -10,6 +10,7 @@ event_inherited();
 function absorb() {
 	global.score += absorbAmount;
 	global.left -= absorbAmount;
+	audio_play_sound(snCollect, 2, false, 1, 0, min(1.4, (absorbAmount + 240) / 300 - 0.2))
 	with(instance_create_layer(absorber.x,absorber.y-absorber.radius-1,"GUI",oScore)) {
 		amount = round(other.absorbAmount);	
 	}
@@ -68,7 +69,7 @@ if (!instance_exists(absorber)) {
 							
 								
 						
-					if (mass < 1) instance_destroy();
+					if (mass < 1 and object_index != oPlayer) instance_destroy();
 					if (_bubble.mass < 1) {
 						if (_bubble.absorber != noone and object_index == oPlayer) {
 							with(_bubble) {

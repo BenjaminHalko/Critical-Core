@@ -23,6 +23,7 @@ if (draw) {
 			oGUI.alarm[0] = 1;
 		} else {
 			oMenu.disableSelect = true;
+			audio_play_sound(snBlip, 2, false);
 		}
 	}
 }

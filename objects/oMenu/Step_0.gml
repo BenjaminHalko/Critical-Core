@@ -17,6 +17,7 @@ if (!oLeaderboardAPI.draw) {
 				option = Wrap(option + keyDown - keyUp, 0, 3);
 				if (option == 2) keyboard_string = global.username;
 				acceptMenuInput = false;
+				audio_play_sound(snBlip,2,false);
 			}
 		} else {
 			acceptMenuInput	= true;	
@@ -27,12 +28,14 @@ if (!oLeaderboardAPI.draw) {
 				oGUI.alarm[0] = 1;
 				instance_deactivate_object(id);
 			} else {
-				usernameFlash = 1;	
+				usernameFlash = 1;
+				audio_play_sound(snBlip,2,false);
 			}
 		}
 		
 		if (option == 1 and keySelect) {
 			GotoLeaderboard();
+			audio_play_sound(snBlip,2,false);
 		}
 	
 		if (option == 2) {
@@ -51,6 +54,7 @@ if (!oLeaderboardAPI.draw) {
 					global.audioVol = clamp(global.audioVol + (keyRight - keyLeft) * 0.1, 0, 1);
 					Save("settings","vol",global.audioVol);
 					audio_master_gain(global.audioVol);
+					audio_play_sound(snBlip,2,false);
 				}
 			} else {
 				volAcceptMenuInput = true;	
