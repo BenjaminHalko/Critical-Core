@@ -1,4 +1,4 @@
-/// @desc Moves "a" towards "b" by "amount" and returns the result
+	/// @desc Moves "a" towards "b" by "amount" and returns the result
 /// @param {Real} a The value to change
 /// @param {Real} b The target value
 /// @param {Real} amount The amount to move by
