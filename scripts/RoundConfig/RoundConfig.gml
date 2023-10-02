@@ -10,7 +10,11 @@ function setLeft() {
 			global.left = 1500;	
 		} break;
 		default: {
-			global.left = 1600 + 200 * (global.round - 3);
+			if (global.round > 10) {
+				global.left = 3000 + 100 * (global.round - 10);
+			} else {
+				global.left = 1600 + 200 * (global.round - 3);
+			}
 		}
 	}
 }

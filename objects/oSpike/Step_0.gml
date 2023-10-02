@@ -20,6 +20,7 @@ if (!place_meeting(x,y,oCore)) {
 			}
 			global.left += 100;
 			global.score -= 100;
+			_bubble.mass -= 100;
 		}
 		instance_destroy();
 	}
