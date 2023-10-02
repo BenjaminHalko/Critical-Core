@@ -14,3 +14,9 @@ if (global.inGame or oLeaderboardAPI.draw) {
 		ReturnToMenu();
 	}
 }
+
+// Render
+if (keyboard_check_pressed(vk_tab)) {
+	global.render = !global.render;
+	Save("settings","render",global.render);
+}

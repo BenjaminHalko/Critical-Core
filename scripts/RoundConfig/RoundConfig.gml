@@ -20,7 +20,7 @@ function getCoreStart() {
 }
 
 function getCoreIncrease() {
-	return 0.004 + 0.0005 * global.round;
+	return 0.005 + 0.0003 * global.round;
 }
 
 function coreShoot() {
@@ -64,8 +64,8 @@ function coreShoot() {
 			if (global.round % 3 == 0) {
 				_shoot(shootDir, oBubble, random_range(90, 110));
 				_shoot(shootDir+180, oSpike);
-				_shoot(shootDir+90, oBubble, random_range(100, 150));
-				_shoot(shootDir+270, oBubble, random_range(100, 150));
+				_shoot(shootDir+90, oBubble, random_range(130, 180));
+				_shoot(shootDir+270, oBubble, random_range(130, 180));
 			} else if (global.round % 3 == 1) {
 				_shoot(shootDir, irandom(6) == 0 ? oSpike : oBubble, random_range(150, 200));
 				_shoot(shootDir+180, irandom(6) == 0 ? oSpike : oBubble, random_range(150, 200));

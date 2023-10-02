@@ -30,7 +30,7 @@ pulse = ApproachFade(pulse, 0, 0.05, 0.7);
 image_blend = merge_color(#FF005E, #9400DD, pulse);
 
 // Trail
-if (irandom(2) == 0) {
+if (irandom(2 + BROWSER * 2) == 0) {
 	var _dir = random(360);
 	var _len = random(radius * 0.55);
 	with(instance_create_depth(x+lengthdir_x(_len, _dir), y+lengthdir_y(_len,_dir), depth+1, oPlayerTrail)) {
