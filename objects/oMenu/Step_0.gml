@@ -1,7 +1,5 @@
 /// @desc 
 
-enableLive;
-
 if (!oLeaderboardAPI.draw) {
 	Input();
 	if(disableSelect) {

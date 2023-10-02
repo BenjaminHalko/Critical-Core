@@ -1,7 +1,5 @@
 /// @desc 
 
-enableLive;
-
 draw_set_font(fFont);
 draw_set_color(c_white);
 draw_set_halign(fa_left);

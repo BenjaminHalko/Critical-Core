@@ -1,7 +1,5 @@
 /// @desc 
 
-enableLive;
-
 var _currentBeat = audio_sound_get_track_position(music) / 60 * 130;
 var _tick = _currentBeat % 0.5;
 global.audioTick = (_tick < lastTick);

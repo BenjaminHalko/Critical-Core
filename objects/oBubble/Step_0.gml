@@ -1,7 +1,5 @@
 /// @desc Merge Bubbles
 
-enableLive;
-
 if (global.gameOver) exit;
 
 // Inherit the parent event

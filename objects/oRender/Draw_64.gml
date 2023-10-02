@@ -1,7 +1,5 @@
 /// @desc 
 
-enableLive;
-
 surface_set_target(surfacePong);
 draw_clear_alpha(c_black, 0);
 shader_set(shBlur);

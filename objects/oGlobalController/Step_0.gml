@@ -7,9 +7,10 @@ if (DESKTOP and (keyboard_check_pressed(vk_f4) or keyboard_check_pressed(vk_f11)
 ScaleCanvas();
 
 // Back
-if (global.inGame) {
+if (global.inGame or oLeaderboardAPI.draw) {
 	Input();
 	if (keyBack) {
+		audio_play_sound(snBlip, 2, false);
 		ReturnToMenu();
 	}
 }

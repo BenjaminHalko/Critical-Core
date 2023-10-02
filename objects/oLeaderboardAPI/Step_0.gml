@@ -1,7 +1,5 @@
 /// @desc 
 
-enableLive;
-
 if (draw) {
 	Input();
 	if(disableSelect) {

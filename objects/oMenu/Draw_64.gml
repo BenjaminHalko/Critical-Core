@@ -1,7 +1,5 @@
 /// @desc 
 
-enableLive;
-
 if (!oLeaderboardAPI.draw) {
 	draw_set_font(fFont);
 	draw_set_color(c_white);

@@ -1,6 +1,4 @@
 function setLeft() {
-	if live_call() return live_result;
-	
 	switch(global.round) {
 		case 1: {
 			global.left = 1000;	
@@ -18,20 +16,14 @@ function setLeft() {
 }
 
 function getCoreStart() {
-	if live_call() return live_result;
-	
 	return 0.1 + 0.008 * global.round;
 }
 
 function getCoreIncrease() {
-	if live_call() return live_result;
-	
 	return 0.004 + 0.0005 * global.round;
 }
 
 function coreShoot() {
-	if live_call() return live_result;
-	
 	var _shoot = function(_shootDir, _obj, _size = 0) {
 		var _layer = _obj == oSpike ? "Spikes" : "Bubbles";
 		with(instance_create_layer(x+lengthdir_x(5,_shootDir),y+lengthdir_y(5,_shootDir),_layer,_obj)) {

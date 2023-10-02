@@ -1,7 +1,5 @@
 /// @desc 
 
-enableLive;
-
 draw_set_color(c_white);
 draw_primitive_begin(pr_trianglelist);
 for(var i = 0; i < array_length(polygonPoints); i++) {

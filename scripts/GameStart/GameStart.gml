@@ -25,6 +25,8 @@ function ReturnToMenu() {
 	instance_destroy(oCore);
 	instance_destroy(pEntity);
 	instance_destroy(oPlayerTrail);
+	instance_destroy(oScore);
+	oLeaderboardAPI.draw = false;
 	instance_activate_object(oMenu);
 }
 

@@ -1,7 +1,5 @@
 /// @desc 
 
-enableLive;
-
 if (draw) {
 	draw_set_font(fScore);
 	draw_set_halign(fa_center);

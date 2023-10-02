@@ -1,7 +1,5 @@
 /// @desc 
 
-enableLive;
-
 if (!global.gameOver and !global.nextRound and global.audioTick and global.audioBeat % 1 == 0 and !global.roundIntro and playerHasMoved) {
 	shootDir += (20 + global.round * 4) * (flipShootDir ? -1 : 1);
 	coreShoot();

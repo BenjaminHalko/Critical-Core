@@ -23,7 +23,10 @@ function LeaderboardPost() {
 		
 		if _index == -1 or scores[_index].points < _score.points {
 			if (_index == -1) array_push(scores, _score);
-			else scores[_index].points = _score.points;
+			else {
+				scores[_index].points = _score.points;
+				scores[_index].level = _score.level;
+			}
 			
 			array_sort(scores, function(_ele1,_ele2) {
 				return (_ele2.points - _ele1.points)

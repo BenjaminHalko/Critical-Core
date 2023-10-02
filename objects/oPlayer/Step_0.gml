@@ -1,7 +1,5 @@
 /// @desc 
 
-enableLive;
-
 if (global.gameOver) exit;
 
 // Inherit the parent event
