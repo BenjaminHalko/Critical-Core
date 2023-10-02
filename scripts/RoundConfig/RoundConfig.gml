@@ -11,7 +11,7 @@ function setLeft() {
 		} break;
 		default: {
 			if (global.round > 10) {
-				global.left = 3000 + 100 * (global.round - 10);
+				global.left = 3000 + 150 * (global.round - 10);
 			} else {
 				global.left = 1600 + 200 * (global.round - 3);
 			}
@@ -20,11 +20,11 @@ function setLeft() {
 }
 
 function getCoreStart() {
-	return 0.1 + 0.008 * global.round;
+	return 0.1 + 0.004 * global.round;
 }
 
 function getCoreIncrease() {
-	return 0.005 + 0.0003 * global.round;
+	return 0.004 + 0.0002 * global.round;
 }
 
 function coreShoot() {
