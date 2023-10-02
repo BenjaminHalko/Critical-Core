@@ -93,6 +93,7 @@
     {"id":{"name":"oMusicController","path":"objects/oMusicController/oMusicController.yy",},},
     {"id":{"name":"LeaderboardAPI","path":"scripts/LeaderboardAPI/LeaderboardAPI.yy",},},
     {"id":{"name":"oGlobalController","path":"objects/oGlobalController/oGlobalController.yy",},},
+    {"id":{"name":"sTitle","path":"sprites/sTitle/sTitle.yy",},},
     {"id":{"name":"FirebaseREST_Database_ListResquest_Builder","path":"scripts/FirebaseREST_Database_ListResquest_Builder/FirebaseREST_Database_ListResquest_Builder.yy",},},
     {"id":{"name":"oGUI","path":"objects/oGUI/oGUI.yy",},},
     {"id":{"name":"Obj_FirebaseREST_Listener_RealTime","path":"objects/Obj_FirebaseREST_Listener_RealTime/Obj_FirebaseREST_Listener_RealTime.yy",},},

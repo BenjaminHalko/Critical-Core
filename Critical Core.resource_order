@@ -58,6 +58,7 @@
     {"name":"rGame","order":3,"path":"rooms/rGame/rGame.yy",},
     {"name":"oMusicController","order":9,"path":"objects/oMusicController/oMusicController.yy",},
     {"name":"LeaderboardAPI","order":2,"path":"scripts/LeaderboardAPI/LeaderboardAPI.yy",},
+    {"name":"sTitle","order":4,"path":"sprites/sTitle/sTitle.yy",},
     {"name":"FirebaseREST_Database_ListResquest_Builder","order":4,"path":"scripts/FirebaseREST_Database_ListResquest_Builder/FirebaseREST_Database_ListResquest_Builder.yy",},
     {"name":"oGUI","order":5,"path":"objects/oGUI/oGUI.yy",},
     {"name":"Obj_FirebaseREST_Listener_RealTime","order":2,"path":"objects/Obj_FirebaseREST_Listener_RealTime/Obj_FirebaseREST_Listener_RealTime.yy",},

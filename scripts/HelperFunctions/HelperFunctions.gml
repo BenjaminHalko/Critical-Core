@@ -103,3 +103,37 @@ function Save(_section, _key, _value) {
 	else ini_write_string(_section, _key, _value);
 	ini_close();
 }
+
+function RenderConverArt(_sprite) {
+	var _width = sprite_get_width(_sprite)+8;
+	var _height = sprite_get_height(_sprite)+8;
+	var _surfacePing = surface_create(_width,_height);
+	var _surfacePong = surface_create(_width,_height);
+	var _uniform = shader_get_uniform(shBlur, "blur_vector");
+
+	surface_set_target(_surfacePing);
+	draw_sprite(_sprite,0,_width/2,_height/2);
+	surface_reset_target();
+
+	surface_set_target(_surfacePong);
+	shader_set(shBlur);
+	shader_set_uniform_f(_uniform,0,1);
+	draw_surface(_surfacePing,0,0);
+	surface_reset_target();
+
+	surface_set_target(_surfacePing);
+	shader_set_uniform_f(_uniform,1,0);
+	draw_surface_ext(_surfacePong,0,0,1,1,0,make_color_hsv(0,0,255*0.9),1);
+	shader_reset();
+
+	gpu_set_blendmode(bm_add);
+	draw_sprite_ext(_sprite,0,_width/2,_height/2,1,1,0,make_color_hsv(0,0,255*0.55),1);
+	gpu_set_blendmode(bm_normal);
+	surface_reset_target();
+
+	var _file = get_save_filename("*.png","CoverArt.png");
+	surface_save(_surfacePing,_file);
+
+	surface_free(_surfacePing);
+	surface_free(_surfacePong);	
+}
