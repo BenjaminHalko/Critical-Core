@@ -1,5 +1,7 @@
 /// @desc 
 
+randomize();
+
 getOsType();
 
 surface_resize(application_surface, 256, 224);

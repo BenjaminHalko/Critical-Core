@@ -8,6 +8,6 @@ gameStart = 0;
 moveTutorial = false;
 
 global.score = 0;
-global.lives = 5;
+global.lives = 3;
 global.round = 1;
 global.left = 0;

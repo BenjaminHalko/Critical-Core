@@ -1,3 +1,7 @@
 /// @desc 
 
-moveTutorial = true;
+with(oCore) {
+	if (!playerHasMoved) {
+		other.moveTutorial = true;
+	}
+}

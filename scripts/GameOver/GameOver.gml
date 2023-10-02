@@ -28,25 +28,28 @@ function GameOver(_instant=false) {
 }
 
 function NextRound() {
-	global.nextRound = true;
-	global.round++;
-	global.lives++;
-	global.score += 10000;
-	oCore.targetScale = getCoreStart();
-	with(oBubble) {
-		if (object_index == oPlayer) continue;
-		BurstBubble(id);	
-	}
-	with(oPlayer) {
-		mass = 500;	
-	}
-	instance_destroy(oSpike);
-	
-	call_later(120, time_source_units_frames, function() {
-		if (global.inGame) {
-			RoundStart();
+	if (!global.gameOver) {
+		global.nextRound = true;
+		global.round++;
+		global.lives++;
+		global.score += 10000;
+		oCore.targetScale = getCoreStart();
+		audio_play_sound(snStart, 2, false, 1, 0, 1.2);
+		with(oBubble) {
+			if (object_index == oPlayer) continue;
+			BurstBubble(id);	
 		}
-	})
+		with(oPlayer) {
+			mass = 500;	
+		}
+		instance_destroy(oSpike);
+	
+		call_later(90, time_source_units_frames, function() {
+			if (global.inGame) {
+				RoundStart();
+			}
+		});
+	}
 }
 
 function BurstBubble(_bubble) {

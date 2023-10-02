@@ -1,6 +1,6 @@
 function GameStart() {
 	instance_create_layer(room_width/2,room_height/2,"Core",oCore);
-	global.lives = 5;
+	global.lives = 3;
 	global.score = 0;
 	global.round = 1;
 	global.inGame = true;
@@ -43,7 +43,7 @@ function RoundStart() {
 		shootDir = 0;
 		flipShootDir = !flipShootDir;
 	}
-	call_later(global.gameOver ? 60 : 120, time_source_units_frames, function() {
+	call_later(global.gameOver ? 60 : 90, time_source_units_frames, function() {
 		if (global.inGame) {
 			global.roundIntro = false;
 			if (!global.gameOver) oGUI.alarm[1] = 180;

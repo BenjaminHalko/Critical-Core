@@ -8,13 +8,13 @@ if (draw) {
 	draw_set_valign(fa_top);
 	draw_set_color(c_white);
 	
-	var _x = 73;
+	var _x = 72;
 	var _y = 62;
 	
 	draw_text(_x+8, _y, "PLACE");
 	draw_text(_x+42, _y, "NAME");
 	draw_text(_x+80, _y, "SCORE");
-	draw_text(_x+104, _y, "ROUND");
+	draw_text(_x+106, _y, "ROUND");
 	
 	draw_set_halign(fa_left);
 	
@@ -32,7 +32,7 @@ if (draw) {
 		draw_text(_x, _scoreY, _place);
 		draw_text(_x+22, _scoreY, scores[i].name);
 		draw_text(_x+70, _scoreY, scores[i].points);
-		draw_text(_x+102, _scoreY, scores[i].level);
+		draw_text(_x+104, _scoreY, scores[i].level);
 	}
 	draw_set_alpha(1);
 	

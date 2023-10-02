@@ -1,6 +1,6 @@
 /// @desc 
 
-image_alpha -= 0.02;
+image_alpha -= 0.02 - 0.01 * double;
 if (image_alpha <= 0) instance_destroy();
 
 with(oScore) {

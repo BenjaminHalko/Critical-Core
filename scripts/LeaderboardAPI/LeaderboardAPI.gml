@@ -30,7 +30,6 @@ function LeaderboardPost() {
 			});
 			
 			global.highscore = scores[0].points;
-			global.pb = _score.points;
 			
 			FirebaseRealTime(FIREBASE_LEADERBOARD_URL).Path(_score.name+"/points").Set(_score.points);
 			FirebaseRealTime(FIREBASE_LEADERBOARD_URL).Path(_score.name+"/level").Set(_score.level);

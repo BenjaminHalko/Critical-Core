@@ -27,6 +27,7 @@ if (!oLeaderboardAPI.draw) {
 			if (global.username != "") {
 				oGUI.alarm[0] = 1;
 				instance_deactivate_object(id);
+				audio_play_sound(snStart,2,false);
 			} else {
 				usernameFlash = 1;
 				audio_play_sound(snBlip,2,false);

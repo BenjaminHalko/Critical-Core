@@ -8,12 +8,15 @@ if (global.gameOver) exit;
 event_inherited();
 
 function absorb() {
+	if (double) audio_play_sound(snPointBoost, 2, false);
+	else audio_play_sound(snCollect, 2, false, 1, 0, min(1.4, (absorbAmount + 240) / 300 - 0.2));
+	with(instance_create_layer(absorber.x,absorber.y-absorber.radius-1,"GUI",oScore)) {
+		amount = round(other.absorbAmount);
+		double = other.double;
+	}
+	if (double) absorbAmount *= 2;
 	global.score += absorbAmount;
 	global.left -= absorbAmount;
-	audio_play_sound(snCollect, 2, false, 1, 0, min(1.4, (absorbAmount + 240) / 300 - 0.2))
-	with(instance_create_layer(absorber.x,absorber.y-absorber.radius-1,"GUI",oScore)) {
-		amount = round(other.absorbAmount);	
-	}
 	absorber.pulse = 1;
 	absorber.mass += mass;
 	if global.left <= 0 {
@@ -39,45 +42,39 @@ if (!instance_exists(absorber)) {
 				var distance = point_distance(x, y, _bubble.x, _bubble.y);
 
 				// Calculate the overlap (the sum of the radii minus the distance)
-				var overlap = (sqrt(mass / pi) + sqrt(_bubble.mass / pi)) - distance;
-
-				// Check if there is any overlap
-				if (overlap > 0) {
+				var overlap = (radius + _bubble.radius + 2) - distance;
 						
-					// Calculate the absorption amount
-					var _absorption = min(overlap, mass, _bubble.mass); // Absorb at most the mass of the absorbing bubble
+				// Calculate the absorption amount
+				var _absorption = min(max(overlap, 20), mass, _bubble.mass); // Absorb at most the mass of the absorbing bubble
 
-					// Calculate the ratio of absorption for each bubble
-					var _absorptionRatio = _absorption / mass;
-					var _otherAbsorptionRatio = _absorption / _bubble.mass;
+				// Calculate the ratio of absorption for each bubble
+				var _absorptionRatio = _absorption / mass;
+				var _otherAbsorptionRatio = _absorption / _bubble.mass;
 		
-					// Calculate the one to absorb
-					_absorption *= (object_index == oPlayer or (mass >= _bubble.mass and _bubble.object_index != oPlayer)) ? 1 : -1;
+				// Calculate the one to absorb
+				_absorption *= (object_index == oPlayer or (mass >= _bubble.mass and _bubble.object_index != oPlayer)) ? 1 : -1;
 
-					// Update mass
-					mass += _absorption;
-					_bubble.mass -= _absorption;
+				// Update mass
+				mass += _absorption;
+				_bubble.mass -= _absorption;
 
-					// Update speed
-					if (object_index != oPlayer) {
-						xSpd = lerp(xSpd, _bubble.xSpd, _absorptionRatio / 2);
-						ySpd = lerp(ySpd, _bubble.ySpd, _absorptionRatio / 2);
+				// Update speed
+				if (object_index != oPlayer) {
+					xSpd = lerp(xSpd, _bubble.xSpd, _absorptionRatio / 2);
+					ySpd = lerp(ySpd, _bubble.ySpd, _absorptionRatio / 2);
 						
-						_bubble.xSpd = lerp(_bubble.xSpd, xSpd, _otherAbsorptionRatio / 2);
-						_bubble.ySpd = lerp(_bubble.ySpd, ySpd, _otherAbsorptionRatio / 2);
-					}
-							
-								
+					_bubble.xSpd = lerp(_bubble.xSpd, xSpd, _otherAbsorptionRatio / 2);
+					_bubble.ySpd = lerp(_bubble.ySpd, ySpd, _otherAbsorptionRatio / 2);
+				}
 						
-					if (mass < 1 and object_index != oPlayer) instance_destroy();
-					if (_bubble.mass < 1) {
-						if (_bubble.absorber != noone and object_index == oPlayer) {
-							with(_bubble) {
-								absorb();	
-							}
+				if (mass < 1 and object_index != oPlayer) instance_destroy();
+				if (_bubble.mass < 1) {
+					if (_bubble.absorber != noone and object_index == oPlayer) {
+						with(_bubble) {
+							absorb();	
 						}
-						instance_destroy(_bubble);
 					}
+					instance_destroy(_bubble);
 				}
 			}
 		}
