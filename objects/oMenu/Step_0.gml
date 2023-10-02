@@ -10,6 +10,12 @@ if (!oLeaderboardAPI.draw) {
 		if (keyDown or keyUp) and !keyboard_check(ord("W")) and !keyboard_check(ord("S")) {
 			if (acceptMenuInput) {
 				if (option == 2) {
+					var _usernameLength = string_length(global.username);
+					while(_usernameLength > 0 and string_char_at(global.username, _usernameLength) == " ") {
+						global.username = string_copy(global.username,0,_usernameLength-1);
+						_usernameLength = string_length(global.username);
+					}
+					
 					Save("settings","username",global.username);
 				}
 				option = Wrap(option + keyDown - keyUp, 0, 3);
