@@ -15,11 +15,11 @@ if (!place_meeting(x,y,oCore)) {
 		} else {
 			audio_play_sound(snPointLoss, 2, false)
 			with(instance_create_layer(_bubble.x,_bubble.y-_bubble.radius-1,"GUI",oScore)) {
-				amount = 100;
+				amount = 200;
 				negative = true;
 			}
-			global.left += 100;
-			global.score -= 100;
+			global.left += 200;
+			global.score -= 200;
 			_bubble.mass -= 100;
 		}
 		instance_destroy();

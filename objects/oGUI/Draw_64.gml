@@ -41,7 +41,7 @@ if (global.nextRound) {
 	draw_set_color(#56e08d);
 	draw_text(room_width/2, room_height/2-40, "ROUND COMPLETE!");
 	draw_text(room_width/2, room_height/2+40, "+10000 POINTS");
-	draw_text(room_width/2, room_height/2+50, "+1 LIFE");
+	if (displayExtraLives) draw_text(room_width/2, room_height/2+50, "+1 LIFE");
 }
 
 if (global.roundIntro) {

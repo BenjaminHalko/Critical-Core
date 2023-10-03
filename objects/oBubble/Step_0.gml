@@ -92,7 +92,7 @@ if (!instance_exists(absorber)) {
 }
 
 // Set Radius
-radius = ApproachFade(radius, sqrt(mass / pi), 1, 0.7);
+radius = ApproachFade(radius, sqrt(max(0,mass) / pi), 1, 0.7);
 image_xscale = radius / 8;
 image_yscale = radius / 8;
 

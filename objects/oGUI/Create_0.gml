@@ -7,6 +7,7 @@ global.roundIntro = false;
 gameStart = 0;
 moveTutorial = false;
 newPB = false;
+displayExtraLives = true;
 
 global.score = 0;
 global.lives = 3;
