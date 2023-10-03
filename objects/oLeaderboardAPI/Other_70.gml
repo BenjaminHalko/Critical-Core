@@ -9,11 +9,19 @@ if (async_load[? "type"] == "FirebaseRealTime_Read" or async_load[? "type"] == "
 			scores = array_create(array_length(_names));
 		
 			for(var i = 0; i < array_length(_names); i++) {
-				var _scoreData = variable_struct_get(_value, _names[i]);
-				scores[i] = {
-					name: _names[i],
-					points: _scoreData.points,
-					level: _scoreData.level
+				try {
+					var _scoreData = variable_struct_get(_value, _names[i]);
+					scores[i] = {
+						name: _names[i],
+						points: _scoreData.points,
+						level: _scoreData.level
+					}
+				} catch(_error) {
+					scores[i] = {
+						name: _names[i],
+						points: 0,
+						level: 0
+					}
 				}
 			}
 			
