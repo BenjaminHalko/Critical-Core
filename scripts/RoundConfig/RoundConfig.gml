@@ -7,7 +7,7 @@ function getCoreStart() {
 }
 
 function getCoreIncrease() {
-	return 0.005 + 0.0002 * global.round;
+	return 0.004 + 0.0002 * global.round;
 }
 
 function coreShoot() {

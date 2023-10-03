@@ -91,6 +91,26 @@ if (!instance_exists(absorber)) {
 	}
 }
 
+// Squish bubble
+if (object_index == oBubble) {
+	var _list = ds_list_create();
+	instance_place_list(x,y,oWall,_list,false);
+	var _inner = false;
+	var _outer = false;
+	for(var i = 0; i < ds_list_size(_list); i++) {
+		if (_list[| i].flipped) {
+			_inner = true;	
+		} else {
+			_outer = true;	
+		}
+		
+		if (_inner and _outer) {
+			BurstBubble(id);	
+		}
+	}
+	ds_list_destroy(_list);
+}
+
 // Set Radius
 radius = ApproachFade(radius, sqrt(max(0,mass) / pi), 1, 0.7);
 image_xscale = radius / 8;
