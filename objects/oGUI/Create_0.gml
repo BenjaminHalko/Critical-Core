@@ -6,6 +6,7 @@ global.nextRound = false;
 global.roundIntro = false;
 gameStart = 0;
 moveTutorial = false;
+newPB = false;
 
 global.score = 0;
 global.lives = 3;

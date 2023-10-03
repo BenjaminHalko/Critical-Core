@@ -11,6 +11,11 @@ var _displayString = function(_num, _digits) {
 
 // TL
 draw_text(8,8,$"SCORE\n {_displayString(global.score, 5)}");
+if(newPB) {
+	draw_set_color(#56e08d);
+	draw_text(8,32,"NEW PB!");
+	draw_set_color(c_white);
+}
 
 // TR
 draw_text(200,8,$"LEFT\n {global.left}");

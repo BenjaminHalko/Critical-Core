@@ -5,6 +5,8 @@ if (global.gameOver) exit;
 // Inherit the parent event
 event_inherited();
 
+deathDelay = max(0,deathDelay-1);
+
 // Movement
 Input();
 xSpd = ApproachFade(xSpd, (keyRight - keyLeft) * 2, 1, 0.7);

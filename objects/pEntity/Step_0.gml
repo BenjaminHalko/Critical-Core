@@ -9,7 +9,9 @@ if (collide) {
 	var _wall = instance_place(x,y,oWall);
 	if (_wall != noone) {
 		if (object_index == oPlayer) {
-			GameOver();
+			if (!_wall.flipped or deathDelay <= 0) { 
+				GameOver();
+			}
 		} else {
 			var _moveDir = point_direction(0,0,xSpd,ySpd);
 			if (angle_difference(_moveDir, _wall.image_angle+90+_wall.flipped*180) <= 90) { 

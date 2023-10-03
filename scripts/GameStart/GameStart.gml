@@ -5,6 +5,7 @@ function GameStart() {
 	global.round = 1;
 	global.inGame = true;
 	global.nextRound = false;
+	oGUI.newPB = false;
 	Respawn();
 }
 
@@ -20,6 +21,7 @@ function ReturnToMenu() {
 	global.gameOver = false;
 	global.nextRound = false;
 	global.roundIntro = false;
+	oGUI.newPB = false;
 	oGUI.moveTutorial = false;
 	oGUI.alarm[1] = -1;
 	instance_destroy(oCore);

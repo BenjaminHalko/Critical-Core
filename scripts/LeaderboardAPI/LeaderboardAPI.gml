@@ -15,6 +15,7 @@ function LeaderboardPost() {
 	if (_score.points > global.pb) {
 		global.pb = _score.points;
 		Save("score", "score", _score.points);
+		oGUI.newPB = true;
 	}
 	with(oLeaderboardAPI) {
 		var _index = array_find_index(scores, function(_val) {
