@@ -1,22 +1,5 @@
 function setLeft() {
-	switch(global.round) {
-		case 1: {
-			global.left = 1000;	
-		} break;
-		case 2: {
-			global.left = 1200;
-		} break;
-		case 3: {
-			global.left = 1500;	
-		} break;
-		default: {
-			if (global.round > 10) {
-				global.left = 3000 + 150 * (global.round - 10);
-			} else {
-				global.left = 1600 + 200 * (global.round - 3);
-			}
-		}
-	}
+	global.left = 1500 + 150 * global.round;
 }
 
 function getCoreStart() {
@@ -66,10 +49,10 @@ function coreShoot() {
 		} break;
 		default: {
 			if (global.round % 3 == 0) {
-				_shoot(shootDir, oBubble, random_range(90, 110));
-				_shoot(shootDir+180, oSpike);
-				_shoot(shootDir+90, oBubble, random_range(130, 180));
-				_shoot(shootDir+270, oBubble, random_range(130, 180));
+				_shoot(shootDir, oBubble, random_range(120, 160));
+				_shoot(shootDir+180, choose(oBubble, oSpike), random_range(120, 160));
+				_shoot(shootDir+90, oBubble, random_range(150, 200));
+				_shoot(shootDir+270, oBubble, random_range(150, 200));
 			} else if (global.round % 3 == 1) {
 				_shoot(shootDir, irandom(6) == 0 ? oSpike : oBubble, random_range(150, 200));
 				_shoot(shootDir+180, irandom(6) == 0 ? oSpike : oBubble, random_range(150, 200));

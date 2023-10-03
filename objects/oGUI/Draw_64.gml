@@ -18,7 +18,7 @@ draw_text(200,8,$"LEFT\n {global.left}");
 
 // BL
 draw_text(8,176,$"PB\n {_displayString(global.pb, 5)}");
-draw_text(8,200,$"HISCORE\n {_displayString(global.highscore, 5)}");
+draw_text(8,200,$"GLOBAL\n {_displayString(global.highscore, 5)}");
 
 // BR
 draw_text(200,176,$"ROUND\n {global.round}");
