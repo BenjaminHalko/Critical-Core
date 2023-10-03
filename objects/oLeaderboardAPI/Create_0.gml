@@ -12,3 +12,4 @@ disableSelect = false;
 global.highscore = 0;
 	
 LeaderboardGet();
+listener = FirebaseRealTime(FIREBASE_LEADERBOARD_URL).Path("/").Listener();

@@ -1,6 +1,6 @@
 /// @desc Get Scores
 
-if (async_load[? "type"] == "FirebaseRealTime_Read") {
+if (async_load[? "type"] == "FirebaseRealTime_Read" or async_load[? "type"] == "FirebaseRealTime_Listener") {
 	if (async_load[? "status"] == 200) {
 		var _data = async_load[? "value"];
 		if !is_undefined(_data) {

@@ -59,7 +59,7 @@ function RoundStart() {
 	}
 }
 
-function GotoLeaderboard() {
+function PositionLeaderboard() {
 	with(oLeaderboardAPI) {
 		var _index = array_find_index(scores, function(_val) {
 			return _val.name == global.username;
@@ -71,8 +71,13 @@ function GotoLeaderboard() {
 		} else {
 			scoreOffsetTarget = 0;
 			scoreOffset = 0;
-		}
-					
+		}	
+	}
+}
+
+function GotoLeaderboard() {
+	PositionLeaderboard();		
+	with(oLeaderboardAPI) {		
 		draw = true;
 		disableSelect = true;
 	}
