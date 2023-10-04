@@ -66,7 +66,7 @@ function PositionLeaderboard() {
 		});
 		
 		if (_index != -1) {
-			scoreOffsetTarget = max(0, min(_index-3, array_length(scores)-scoresPerPage));
+			scoreOffsetTarget = max(0, min(_index-5, array_length(scores)-scoresPerPage));
 			scoreOffset = scoreOffsetTarget;
 		} else {
 			scoreOffsetTarget = 0;
