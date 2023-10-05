@@ -97,6 +97,11 @@ function Wrap(_value, _min, _max) {
 
 }
 
+function drawCircle(_x, _y, _radius) {
+	var _offset = 0.5 + (!BROWSER)*0.5;
+	draw_circle(_x-_offset, _y-_offset, _radius, false);	
+}
+
 function Save(_section, _key, _value) {
 	ini_open(SAVEFILE);
 	if is_real(_value) ini_write_real(_section, _key, _value);
