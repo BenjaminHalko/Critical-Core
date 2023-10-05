@@ -44,22 +44,22 @@ function coreShoot() {
 			_shoot(shootDir+270, oBubble, random_range(100, 150));
 		} break;
 		case 4: {
-			_shoot(shootDir, oBubble, random_range(150, 180));
-			_shoot(shootDir+180, choose(oBubble, oBubble, oSpike), random_range(150, 180));
+			_shoot(shootDir, oBubble, random_range(170, 220));
+			_shoot(shootDir+180, choose(oBubble, oBubble, oSpike), random_range(170, 220));
 		} break;
 		default: {
 			if (global.round % 3 == 0) {
-				_shoot(shootDir, oBubble, random_range(120, 160));
-				_shoot(shootDir+180, choose(oBubble, oBubble, oSpike), random_range(120, 160));
-				_shoot(shootDir+90, oBubble, random_range(150, 200));
-				_shoot(shootDir+270, oBubble, random_range(150, 200));
+				_shoot(shootDir, oBubble, random_range(100, 160));
+				_shoot(shootDir+180, choose(oBubble, oBubble, oSpike), random_range(100, 160));
+				_shoot(shootDir+90, oBubble, random_range(100, 180));
+				_shoot(shootDir+270, oBubble, random_range(100, 180));
 			} else if (global.round % 3 == 1) {
-				_shoot(shootDir, irandom(6) == 0 ? oSpike : oBubble, random_range(150, 200));
-				_shoot(shootDir+180, irandom(6) == 0 ? oSpike : oBubble, random_range(150, 200));
+				_shoot(shootDir, irandom(6) == 0 ? oSpike : oBubble, random_range(170, 220));
+				_shoot(shootDir+180, irandom(6) == 0 ? oSpike : oBubble, random_range(170, 220));
 			} else {
 				_shoot(shootDir, irandom(6) == 0 ? oSpike : oBubble, random_range(130, 180));
-				_shoot(shootDir+120, oBubble, random_range(100, 120));
-				_shoot(shootDir+240, irandom(3) == 0 ? oSpike : oBubble, random_range(150, 200));
+				_shoot(shootDir+120, oBubble, random_range(80, 100));
+				_shoot(shootDir+240, irandom(3) == 0 ? oSpike : oBubble, random_range(150, 180));
 			}			
 		} break;
 	}
