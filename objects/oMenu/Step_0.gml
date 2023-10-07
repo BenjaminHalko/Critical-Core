@@ -7,7 +7,7 @@ if (!oLeaderboardAPI.draw) {
 		disableSelect = false;
 	}
 	if (DESKTOP or BROWSER) {
-		if (keyDown or keyUp) and !keyboard_check(ord("W")) and !keyboard_check(ord("S")) {
+		if (keyDown or keyUp) and (option != 2 or (!keyboard_check(ord("W")) and !keyboard_check(ord("S")))) {
 			if (acceptMenuInput) {
 				if (option == 2) {
 					var _usernameLength = string_length(global.username);
@@ -29,6 +29,11 @@ if (!oLeaderboardAPI.draw) {
 			
 		if (option == 0 and keySelect) {
 			if (global.username != "") {
+				with(oMusicController) {
+					if !audio_is_playing(music) {
+						music = audio_play_sound(mMusic, 1, true);
+					}
+				}
 				oGUI.alarm[0] = 1;
 				instance_deactivate_object(id);
 				audio_play_sound(snStart,2,false);
