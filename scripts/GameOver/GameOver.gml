@@ -58,15 +58,17 @@ function NextRound() {
 }
 
 function BurstBubble(_bubble) {
-	repeat(max(10, _bubble.mass / 50)) {
-		var _dir = random(360);
-		var _len = random(_bubble.radius * 0.8);
-		with(instance_create_depth(_bubble.x+lengthdir_x(_len, _dir),_bubble.y+lengthdir_y(_len, _dir), _bubble.depth+1, oPlayerTrail)) {
-			radius = random_range(_bubble.radius / 4, _bubble.radius / 3);
-			image_blend = c_gray;
+	with(_bubble) {
+		repeat(max(10, mass / 50)) {
+			var _dir = random(360);
+			var _len = random(radius * 0.8);
+			with(instance_create_depth(x+lengthdir_x(_len, _dir),y+lengthdir_y(_len, _dir), depth+1, oPlayerTrail)) {
+				radius = random_range(other.radius / 4, other.radius / 3);
+				image_blend = c_gray;
+			}
 		}
+		instance_destroy();
 	}
-	instance_destroy(_bubble);
 }
 
 function PlayerExplode() {
