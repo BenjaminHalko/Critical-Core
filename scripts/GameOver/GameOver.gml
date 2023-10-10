@@ -30,14 +30,17 @@ function GameOver(_instant=false) {
 function NextRound() {
 	if (!global.gameOver) {
 		global.nextRound = true;
-		global.round++;
 		if (global.lives < 3) {
 			global.lives++;
 			oGUI.displayExtraLives = true;
 		} else {
 			oGUI.displayExtraLives = false;
 		}
-		global.score += 10000;
+		var _score = 10000 + getLeft() * 2;
+		global.score += _score;
+		oGUI.endOfLevelBonus = _score;
+		global.scoreStart = global.score;
+		global.round++;
 		oCore.targetScale = getCoreStart();
 		audio_play_sound(snStart, 2, false, 1, 0, 1.2);
 		with(oBubble) {

@@ -1,5 +1,5 @@
-function setLeft() {
-	global.left = 1500 + 150 * global.round;
+function getLeft() {
+	return 1500 + 150 * global.round;
 }
 
 function getCoreStart() {
