@@ -39,7 +39,7 @@ if (global.audioTick) {
 			beatPulse = max(beatPulse, 0.5 + 2 * (index == -1));
 			colorPulse = max(colorPulse, 0.5 + 0.2 * (index == -1));
 		}
-		if (!global.gameOver) {
+		if (!global.gameOver or !instance_exists(oPlayer)) {
 			with(oCore) {
 				pulse = 1;
 				if (!global.nextRound and !global.roundIntro and playerHasMoved) targetScale += getCoreIncrease();

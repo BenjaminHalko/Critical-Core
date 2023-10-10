@@ -9,7 +9,7 @@ radius = 0;
 absorber = noone;
 absorbAmount = 0;
 
-double = irandom(clamp(38-global.round*2,10,20)-1) == 0;
+double = irandom(clamp(30-global.round,15,20)-1) == 0;
 
 setRadius = function() {
 	radius = sqrt(mass / pi);

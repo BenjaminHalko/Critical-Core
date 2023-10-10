@@ -5,7 +5,7 @@ if (!global.gameOver and !global.nextRound and global.audioTick and global.audio
 	coreShoot();
 }
 
-if (!global.gameOver) {
+if (!global.gameOver or !instance_exists(oPlayer)) {
 	pulse = Approach(pulse,0,0.1);
 	scale = ApproachFade(scale,(targetScale * 208 + pulse * 10) / 208,1,0.7);
 }
