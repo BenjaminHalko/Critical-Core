@@ -36,10 +36,7 @@ function NextRound() {
 		} else {
 			oGUI.displayExtraLives = false;
 		}
-		var _score = 10000 + ceil(getLeft() * 0.5);
-		global.score += _score;
-		oGUI.endOfLevelBonus = _score;
-		global.scoreStart = global.score;
+		global.score += 10000;
 		global.round++;
 		oCore.targetScale = getCoreStart();
 		audio_play_sound(snStart, 2, false, 1, 0, 1.2);

@@ -40,7 +40,7 @@ if (global.nextRound) {
 	draw_set_valign(fa_middle);
 	draw_set_color(#61FFA0);
 	draw_text(room_width/2, room_height/2-40, "ROUND COMPLETE!");
-	draw_text(room_width/2, room_height/2+40, $"+{endOfLevelBonus} POINTS");
+	draw_text(room_width/2, room_height/2+40, "+10000 POINTS");
 	if (displayExtraLives) draw_text(room_width/2, room_height/2+50, "+1 LIFE");
 }
 

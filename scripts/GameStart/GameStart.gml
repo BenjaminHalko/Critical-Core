@@ -2,7 +2,6 @@ function GameStart() {
 	instance_create_layer(room_width/2,room_height/2,"Core",oCore);
 	global.lives = 3;
 	global.score = 0;
-	global.scoreStart = 0;
 	global.round = 1;
 	global.inGame = true;
 	global.nextRound = false;
@@ -34,7 +33,6 @@ function ReturnToMenu() {
 }
 
 function Respawn() {
-	global.score = global.scoreStart;
 	instance_destroy(pEntity);
 	instance_create_layer(room_width/2,44,"Player",oPlayer);
 	RoundStart();
