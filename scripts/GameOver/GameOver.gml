@@ -36,7 +36,7 @@ function NextRound() {
 		} else {
 			oGUI.displayExtraLives = false;
 		}
-		var _score = 10000 + getLeft();
+		var _score = 10000 + ceil(getLeft() * 0.5);
 		global.score += _score;
 		oGUI.endOfLevelBonus = _score;
 		global.scoreStart = global.score;
