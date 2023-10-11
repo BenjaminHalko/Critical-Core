@@ -3,7 +3,7 @@ function getLeft() {
 }
 
 function getCoreStart() {
-	return 0.1 + 0.004 * min(8, global.round);
+	return 0.1 + 0.004 * min(10, global.round);
 }
 
 function getCoreIncrease() {
