@@ -22,9 +22,9 @@ if (draw) {
 		var _scoreY = _y + (i - scoreOffset) * 9 + 16;
 		
 		var _place = string(i + 1);
-		if ((i+1) % 10 == 1 and i+1 != 11) _place += "st";
-		else if ((i+1) % 10 == 2 and i+1 != 12) _place += "nd";
-		else if ((i+1) % 10 == 3 and i+1 != 13) _place += "rd";
+		if ((i+1) % 10 == 1 and (i+1) % 100 != 11) _place += "st";
+		else if ((i+1) % 10 == 2 and (i+1) % 100 != 12) _place += "nd";
+		else if ((i+1) % 10 == 3 and (i+1) % 100 != 13) _place += "rd";
 		else _place += "th";
 		
 		draw_text(_x, _scoreY, _place);
