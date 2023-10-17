@@ -1,3 +1,5 @@
 /// @desc 
 
-FirebaseRealTime(FIREBASE_LEADERBOARD_URL).ListenerRemove(listener);
+if (!OTHER_LEADERBOARD) {
+	FirebaseRealTime(FIREBASE_LEADERBOARD_URL).ListenerRemove(listener);
+}

@@ -9,6 +9,8 @@
 #macro DESKTOP (global.ostype == OS.OSDESKTOP)
 #macro MOBILE (global.ostype == OS.OSMOBILE or os_type == os_android or global.mobileOperaGX)
 
+#macro OTHER_LEADERBOARD (OPERA or MOBILE)
+
 enum OS {
 	OSBROWSER,
 	OSOPERA,
@@ -26,5 +28,7 @@ function getOsType() {
 		var _info = os_get_info();
 		global.mobileOperaGX = _info[? "mobile"];
 		ds_map_destroy(_info);
+	} else {
+		global.mobileOperaGX = false;	
 	}
 }
